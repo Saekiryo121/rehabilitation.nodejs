@@ -1,24 +1,27 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html>
     <head>
-        <meta charset="UTF-8">
-        <title><%= user.name %> の詳細情報</title>
-        <link type="text/css" rel="stylesheet" href="css/style.css">
+        <title>患者一覧</title>
     </head>
     <body>
-        <h1><%= user.name %> の詳細情報</h1>
-        <ul>
-            <li>名前: <%= user.name %></li>
-            <li>生年月日: <%= user.birthdate %></li>
-            <li>リハビリの開始日: <%= user.rehabilitationStartDate %></li>
-            <li>介護保険の期限: <%= user.careInsuranceExpiration %></li>
-            <li>特定疾患の期限: <%= user.specificDiseaseExpiration %></li>
-            <li>重症心身障害者の手帳の期限: <%= user.severePhysicalDisabilityExpiration %></li>
-            <li>介護マネージャーの事業所: <%= user.careManagerOffice %></li>
-            <li>介護マネージャーの担当者名: <%= user.careManagerName %></li>
-            <li>要介護度: <%= user.careNeedsLevel %></li>
-            <li>生活保護の有無: <%= isWelfare(user.welfareAssistance) %></li>
-        </ul>
-        <a href="/">利用者一覧に戻る</a>
+        <h1>患者詳細</h1>
+        <table border="1">
+            <tr>
+                <th>名前</th>
+                <th>疾患</th>
+                <th>医療履歴</th>
+                <th>目標</th>
+                <th>家族</th>
+                <th>その他の医療履歴</th>
+            </tr>
+            <tr>
+                <td><%= patient.name %></td>
+                <td><%= patient.disease %></td>
+                <td><%= patient.medicalHistory %></td>
+                <td><%= patient.goals %></td>
+                <td><%= patient.family %></td>
+                <td><%= patient.medicalHistoryOther %></td>
+            </tr>
+        </table>
     </body>
 </html>
