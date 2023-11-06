@@ -6,7 +6,6 @@
             body {
                 font-family: Arial, sans-serif;
                 background-color: #f0f0f0;
-     
             }
 
             h1 {
@@ -39,25 +38,37 @@
     </head>
     <body>
         <h1>患者詳細</h1>
-    <table border="1">
-        <tr>
-            <th>名前</th>
-            <th>疾患</th>
-            <th>医療履歴</th>
-            <th>目標</th>
-            <th>家族</th>
-            <th>その他の医療履歴</th>
-        </tr>
-        <% data.forEach(function(user) { %>
+        <table border="1">
             <tr>
-                <td><%= user.name %></td>
-                <td><%= user.disease %></td>
-                <td><%= user.medicalHistory %></td>
-                <td><%= user.goals %></td>
-                <td><%= user.family %></td>
-                <td><%= user.medicalHistoryOther %></td>
+                <th>名前</th>
+                <th>疾患</th>
+                <th>医療履歴</th>
+                <th>目標</th>
+                <th>家族</th>
+                <th>その他の医療履歴</th>
             </tr>
-        <% }); %>
-    </table>
+            <% datas.forEach(function(data) { %>
+                <tr>
+                    <td>
+                        <%= data.name %>
+                    </td>
+                    <td>
+                        <%= data.disease %>
+                    </td>
+                    <td>
+                        <%= data.medicalHistory %>
+                    </td>
+                    <td>
+                        <%= data.goals %>
+                    </td>
+                    <td>
+                        <%= data.family %>
+                    </td>
+                    <td>
+                        <%= data.medicalHistoryOther %>
+                    </td>
+                </tr>
+                <% }); %>
+        </table>
     </body>
 </html>

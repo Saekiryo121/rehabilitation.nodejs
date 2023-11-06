@@ -147,7 +147,7 @@ app.get("/", (req, res) => {
 });
 
 app.get("/user/:name", (req, res) => {
-  const userName = req.params.name;
+  const userName = decodeURIComponent(req.params.name);
   const patient = patients.find((patient) => patient.name === userName);
   if (!patient) {
     return res.status(404).send("ユーザーが見つかりません");
@@ -201,7 +201,14 @@ app.get("/patients", (req, res) => {
   res.json(patients);
 });
 
-
-
+app.get("/data/:name", (req, res) => {
+  const sql = "SELECT * FROM data WHERE name = ?";
+  con.query(sql, [req.params.name], function (err, result, fields) {
+    if (err) throw err;
+    res.render("data", {
+      datas: result
+    });
+  });
+});
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
