@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>患者一覧</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                background-color: #f0f0f0;
+     
+            }
+
+            h1 {
+                background-color: #289e48;
+                color: #fff;
+                padding: 10px;
+            }
+
+            table {
+                width: 90%;
+                border-collapse: collapse;
+                margin: 0 auto;
+            }
+
+            th,
+            td {
+                padding: 8px;
+                text-align: left;
+            }
+
+            th {
+                background-color: #80d496;
+                color: #fff;
+            }
+
+            tr:nth-child(even) {
+                background-color: #f2f2f2;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>患者詳細</h1>
+    <table border="1">
+        <tr>
+            <th>名前</th>
+            <th>疾患</th>
+            <th>医療履歴</th>
+            <th>目標</th>
+            <th>家族</th>
+            <th>その他の医療履歴</th>
+        </tr>
+        <% data.forEach(function(user) { %>
+            <tr>
+                <td><%= user.name %></td>
+                <td><%= user.disease %></td>
+                <td><%= user.medicalHistory %></td>
+                <td><%= user.goals %></td>
+                <td><%= user.family %></td>
+                <td><%= user.medicalHistoryOther %></td>
+            </tr>
+        <% }); %>
+    </table>
+    </body>
+</html>

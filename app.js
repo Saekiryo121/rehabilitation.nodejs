@@ -147,7 +147,7 @@ app.get("/", (req, res) => {
 });
 
 app.get("/user/:name", (req, res) => {
-  const userName = req.params.name; // パラメータから名前を取得
+  const userName = req.params.name;
   const patient = patients.find((patient) => patient.name === userName);
   if (!patient) {
     return res.status(404).send("ユーザーが見つかりません");
@@ -200,5 +200,8 @@ app.get("/delete/:id", (req, res) => {
 app.get("/patients", (req, res) => {
   res.json(patients);
 });
+
+
+
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
